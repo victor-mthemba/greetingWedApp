@@ -1,0 +1,20 @@
+language: node_js
+env:
+  - DATABASE_URL=postgresql://postgres@localhost:5432/greetings-test
+
+node_js:
+  - "v12.10.0"
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database  greetings-test;' -U postgres
+  - psql -U postgres -d greetings-test -a -f database/tables.sql
+
+after_success: npm run coverage
+
+addons:
+  apt:
+    packages:
+      - postgresql-server-dev-9.2

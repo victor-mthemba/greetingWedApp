@@ -1,0 +1,48 @@
+h1 {
+    width: 150px;
+    /* border: 2px solid black; */
+    padding: 20px;
+    margin: 2px;
+    justify-content: center;
+    display: flex;
+}
+.name{
+    justify-content: center;
+    display: flex;
+}
+input{
+    margin-top: 3em;
+    
+}
+.langs{
+    justify-content: center;
+    display: flex;
+    font-size: 2em;
+}
+.clickBtn{
+    justify-content: center;
+    display: flex;
+   
+}
+
+.pad {
+    margin-top: 5em;
+
+}
+
+.table {
+    border: 1px solid black;
+}
+a :active {
+    color: black !important;
+}
+
+a {
+    color: black !important;
+}
+
+a :focus {
+    color: black !important;
+}
+
+

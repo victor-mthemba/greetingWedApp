@@ -1,0 +1,40 @@
+<div class="container center">
+    <form action="/" method="POST">
+        <h1 class="center">Greeting</h1>
+        <strong>counter</strong>
+        <span>= <span class="counterOutPut">{{counter}}</span></span>
+        <div class="row name">
+            <div class="center">
+                <div>
+                    <h4 class="error"> {{messages.error}}</h4>
+                </div>
+                Name: <input name="name" rows="1" cols="15" class="inputName" placeholder="Enter Name"></input>
+                <button class="greetBtn btn btn-success" type="submit">Greet Me</button>
+    </form>
+    <form action="/reset" method="POST">
+        <button class="resetBtn btn btn-danger" type="submit">reset</button>
+    </form>
+    <div class="col-12">
+        <label class="">
+            <input type="radio" name="radioType" class="languageType" value="English">
+            <span class="label-body">English</span>
+        </label>
+
+        <label class="">
+            <input type="radio" name="radioType" class="languageType" value="Afrikaans">
+            <span class="label-body">Afrikaans</span>
+        </label>
+        <label class="">
+            <input type="radio" name="radioType" class="languageType" value="IsiXhosa">
+            <span class="label-body">IsiXhosa</span>
+        </label>
+    </div>
+</div>
+</div>
+
+
+<a href="/greeted"><button class="btn btn-secondary">Greeted people</button></a>
+<div class="row pad">
+    <span class="text greet-message">{{username}}</span>
+</div>
+</div>

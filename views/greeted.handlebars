@@ -1,0 +1,16 @@
+ <div class="row">
+        <h1>Greeted</h1>
+
+        <table class="table">
+            <tr>
+                <th>People</th>
+            </tr>
+            {{#each people}}
+            <tr>
+                <td><a href="/counter/{{list_name}}">{{list_name}} </a></td> 
+            </tr>
+            {{/each}}
+        </table>
+        <a href="/"><button class="btn btn-secondary">Home</button></a>
+    </div>
+

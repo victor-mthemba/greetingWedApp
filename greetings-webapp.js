@@ -2,27 +2,29 @@ module.exports = function GreetingsWebApp(pool) {
 
     async function greetNameEntered(username, language) {
         let lowerCaseUsername = username.toLowerCase();
-    
-        
-        if(lowerCaseUsername === "" || language === undefined) {
+
+        let gotNumber = /\d.*\d.*/.test(lowerCaseUsername);
+
+        if (lowerCaseUsername === "" || language === undefined) {
             return;
         }
 
-        let distinct_names = await pool.query("SELECT DISTINCT list_name FROM greetings WHERE list_name = $1", [lowerCaseUsername]);
-        if (distinct_names.rows.length === 1) {
-            await pool.query("UPDATE greetings SET counter_name = counter_name +1 WHERE list_name = $1", [lowerCaseUsername])
-        } else {
-            await pool.query("INSERT INTO greetings (list_name,counter_name) VALUES ($1,$2);", [lowerCaseUsername, 1])
-        }
+        if (!gotNumber) {
+            let distinct_names = await pool.query("SELECT DISTINCT list_name FROM greetings WHERE list_name = $1", [lowerCaseUsername]);
+            if (distinct_names.rows.length === 1) {
+                await pool.query("UPDATE greetings SET counter_name = counter_name +1 WHERE list_name = $1", [lowerCaseUsername])
+            } else {
+                await pool.query("INSERT INTO greetings (list_name,counter_name) VALUES ($1,$2);", [lowerCaseUsername, 1])
+            }
 
-        if (language === "English") {
-            return "Hello " + lowerCaseUsername;
-        } else if (language === "IsiXhosa") {
-            return "Molo " + lowerCaseUsername;
-        } else if (language === "Afrikaans") {
-            return "Hallo " + lowerCaseUsername;
+            if (language === "English") {
+                return "Hello " + lowerCaseUsername;
+            } else if (language === "IsiXhosa") {
+                return "Molo " + lowerCaseUsername;
+            } else if (language === "Afrikaans") {
+                return "Hallo " + lowerCaseUsername;
+            }
         }
-
 
     }
 
@@ -32,7 +34,7 @@ module.exports = function GreetingsWebApp(pool) {
         return counter.rows[0].count;
     }
 
-    async function counterFor(name){
+    async function counterFor(name) {
         var count = await pool.query("SELECT counter_name FROM greetings WHERE list_name = $1", [name]);
         return count.rows[0].counter_name;
     }

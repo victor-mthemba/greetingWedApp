@@ -17,17 +17,17 @@ describe('The basic database web app', function () {
 
     it('should able to greet victor in English', async function () {
         let instance_for_greet = Greetings(pool);
-        assert.equal("Hello victor", await instance_for_greet.greetNameEntered('victor','English'));
+        assert.equal("Hello Victor", await instance_for_greet.greetNameEntered('victor','English'));
     });
 
     it('should able to greet andile in IsiXhosa', async function () {
         let instance_for_greet = Greetings(pool);
-        assert.equal("Molo andile", await instance_for_greet.greetNameEntered('andile','IsiXhosa'));
+        assert.equal("Molo Andile", await instance_for_greet.greetNameEntered('andile','IsiXhosa'));
     });
 
     it('should able to greet sibusiso in Afrikaans', async function () {
         let instance_for_greet = Greetings(pool);
-        assert.equal("Hallo sibusiso", await instance_for_greet.greetNameEntered('sibusiso','Afrikaans'));
+        assert.equal("Hallo Sibusiso", await instance_for_greet.greetNameEntered('sibusiso','Afrikaans'));
     });
 
     it('should return undefined if no name has been entered', async function () {
@@ -47,17 +47,17 @@ describe('The basic database web app', function () {
 
     it('should return how many times an indivisual has been greeted!', async function () {
         let instance_for_greet = Greetings(pool);
-        assert.equal("Hello victor", await instance_for_greet.greetNameEntered('victor','English'));
-        assert.equal("Hello victor", await instance_for_greet.greetNameEntered('victor','English'));
+        assert.equal("Hello Victor", await instance_for_greet.greetNameEntered('victor','English'));
+        assert.equal("Hello Victor", await instance_for_greet.greetNameEntered('victor','English'));
 
 
-        assert.equal(2, await instance_for_greet.counterFor('victor'));
+        assert.equal(2, await instance_for_greet.counterFor('Victor'));
     });
 
     it('should return the number of people in a database', async function () {
         let instance_for_greet = Greetings(pool);
-        assert.equal("Hello victor", await instance_for_greet.greetNameEntered('victor','English'));
-        assert.equal("Hallo sibusiso", await instance_for_greet.greetNameEntered('sibusiso','Afrikaans'));
+        assert.equal("Hello Victor", await instance_for_greet.greetNameEntered('victor','English'));
+        assert.equal("Hallo Sibusiso", await instance_for_greet.greetNameEntered('sibusiso','Afrikaans'));
 
         assert.equal(2, await instance_for_greet.getCounter());
     });

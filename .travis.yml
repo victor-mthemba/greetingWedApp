@@ -1,14 +1,14 @@
 language: node_js
 
 env:
-  - DATABASE_URL=postgresql://postgres@localhost:5432/greetings_tests
+  - DATABASE_URL=postgresql://postgres@localhost:5432/greetings tests
 
 node_js:  
   - "9.11.2"
 
 before_script:
-  - psql -c 'create database  greetings_tests;' -U postgres
-  - psql -U postgres -d greeting_tests -a -f tables.sql
+  - psql -c 'create database  greetings tests;' -U postgres
+  - psql -U postgres -d greeting tests -a -f tables.sql
 
 addons:
   apt:

@@ -1,20 +1,21 @@
+
 language: node_js
+
 env:
-  - DATABASE_URL=postgresql://postgres@localhost:5432/greetings-test
+  - DATABASE_URL=postgresql://postgres@localhost:5432/greetings_tests
 
-node_js:
-  - "v9.11.2"
-
-services:
-  - postgresql
+node_js:  
+  - "9.11.2"
 
 before_script:
-  - psql -c 'create database  greetings-test;' -U postgres
-  - psql -U postgres -d greetings-test -a -f database/tables.sql
-
-after_success: npm run coverage
+  - psql -c 'create database  greetings_tests;' -U postgres
+  - psql -U postgres -d greeting_tests -a -f tables.sql
 
 addons:
   apt:
+    sources:
+    - precise-pgdg-9.5
     packages:
-      - postgresql-server-dev-9.2
+    - postgresql-9.5
+    - postgresql-contrib-9.5
+  postgresql: 9.5

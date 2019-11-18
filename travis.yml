@@ -3,7 +3,7 @@ env:
   - DATABASE_URL=postgresql://postgres@localhost:5432/greetings-test
 
 node_js:
-  - "v12.10.0"
+  - "v9.11.2"
 
 services:
   - postgresql

@@ -65,10 +65,14 @@ app.get('/',async function (req, res)  {
 
 app.post('/',async function (req, res) {
     let {name, radioType} = req.body;
+    let gotNumbers = /\d.*\d.*/.test(name);
     if (name === "" || radioType === undefined ) {
         req.flash('error', 'Please enter a name or select a language');
 
     } 
+    else if(gotNumbers) {
+        req.flash('error', 'Invalid name');
+    }
 
     res.render('index', {
         username:  await greetingswebapp.greetNameEntered(req.body.name, req.body.radioType),
@@ -101,7 +105,7 @@ app.post('/reset', async function (req, res) {
 
 
 
-const PORT = process.env.PORT || 3500;
+const PORT = process.env.PORT || 3100;
 
 app.listen(PORT, function () {
     console.log("App started at port: ", PORT)

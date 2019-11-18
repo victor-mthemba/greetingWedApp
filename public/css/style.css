@@ -45,4 +45,8 @@ a :focus {
     color: black !important;
 }
 
+.size{
+    size: 100px;
+  }
+
 

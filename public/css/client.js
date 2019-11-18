@@ -4,5 +4,5 @@ document.addEventListener('DOMContentLoaded', function () {
         if (errorMessageElem.innerHTML !== '') {
             errorMessageElem.innerHTML = ''
         }
-    }, 2000);
+    }, 5000);
 });

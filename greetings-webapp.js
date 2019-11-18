@@ -1,7 +1,7 @@
 module.exports = function GreetingsWebApp(pool) {
 
     async function greetNameEntered(username, language) {
-        let lowerCaseUsername = username.toLowerCase();
+        let lowerCaseUsername = username.charAt(0).toUpperCase() + username.slice(1).toLowerCase();
 
         let gotNumber = /\d.*\d.*/.test(lowerCaseUsername);
 

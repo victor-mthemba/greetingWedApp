@@ -9,10 +9,10 @@
                     <h4 class="error"> {{messages.error}}</h4>
                 </div>
                 Name: <input name="name" rows="1" cols="15" class="inputName" placeholder="Enter Name"></input>
-                <button class="greetBtn btn btn-success" type="submit">Greet Me</button>
+                <button class="greetBtn btn btn-success btn-sm" type="submit">Greet Me</button>
     </form>
-    <form action="/reset" method="POST">
-        <button class="resetBtn btn btn-danger" type="submit">reset</button>
+    <form class="inline-form" onsubmit="return confirm('Do you really want to reset ?');" action="/reset" method="POST">
+        <button class="resetBtn btn btn-danger btn-sm" type="submit">reset</button>
     </form>
     <div class="col-12">
         <label class="">
@@ -34,7 +34,9 @@
 
 
 <a href="/greeted"><button class="btn btn-secondary">Greeted people</button></a>
+{{#if username}}
 <div class="row pad">
     <span class="text greet-message">{{username}}</span>
 </div>
+{{/if}}
 </div>

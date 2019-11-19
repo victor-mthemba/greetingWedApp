@@ -49,4 +49,8 @@ a :focus {
     size: 100px;
   }
 
+.inline-form {
+    display: inline;
+}
+
 

@@ -272,6 +272,7 @@ p {
 }
 .pad {
   padding-top: 2em;
+  margin-bottom: 100px;
 }
 
 .error{
